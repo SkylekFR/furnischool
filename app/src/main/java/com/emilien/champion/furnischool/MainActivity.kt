@@ -7,7 +7,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.ktx.app
 import com.google.firestore.v1.Document
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
@@ -18,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.mainAddNewFurnitureButton.setOnClickListener {
-            val hashMap: MutableMap<String, String> = HashMap<String, String>()
+            val hashMap: MutableMap<String, String> = HashMap()
             hashMap["test"] = "test"
             FirebaseFirestore.getInstance().collection("test").add(hashMap)
         }
